@@ -1,0 +1,76 @@
+/* ====== ORIGINAL DESIGN, NO CHANGES ====== */
+
+:root{
+  --bg:#fff7f3;
+  --peach:#FAD7C9;
+  --peach-2:#F7C7A9;
+  --accent:#E09047;
+  --brown:#5A3724;
+  --muted:#8b6f5a;
+  --card:#fff;
+  --glass: rgba(255,255,255,0.7);
+  --shadow: 0 6px 18px rgba(83,52,30,0.08);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:var(--brown);}
+.container{max-width:1050px;margin:0 auto;padding:28px}
+
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--peach),var(--peach-2));display:flex;align-items:center;justify-content:center;color:var(--brown);font-weight:700;font-size:20px}
+nav{display:flex;gap:18px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-weight:600;cursor:pointer}
+nav a:hover{color:var(--brown)}
+.btn-reserve{background:var(--accent);color:white;padding:10px 16px;border-radius:999px;border:none;cursor:pointer}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;padding:28px 0}
+
+/* categories */
+.categories{display:flex;gap:18px;justify-content:center;padding:18px 0}
+.cat{background:var(--card);width:110px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 6px 18px rgba(0,0,0,0.04);cursor:pointer}
+.cat span{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* products */
+.products{padding:26px 0}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.thumb{height:130px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff7f0);display:flex;align-items:center;justify-content:center;font-size:48px}
+.title{font-weight:700;color:var(--brown)}
+.price{color:var(--accent);font-weight:700}
+.card .actions{margin-top:auto;display:flex;gap:8px;align-items:center}
+.add-btn{flex:1;background:var(--accent);color:white;padding:8px;border-radius:8px;border:none;cursor:pointer}
+.fav{width:36px;height:36;border-radius:8px;background:var(--glass);border:1px solid rgba(90,55,36,0.06);display:flex;align-items:center;justify-content:center}
+
+/* cart button */
+.cart-btn{position:fixed;right:20px;bottom:20px;background:var(--accent);color:white;padding:14px 16px;border-radius:999px;border:none;display:flex;gap:10px;align-items:center;box-shadow:0 12px 30px rgba(224,144,71,0.22);cursor:pointer;z-index:60}
+.cart-count{background:#fff;color:var(--accent);padding:4px 8px;border-radius:999px;font-weight:700}
+
+/* drawer */
+.drawer{position:fixed;right:0;top:0;height:100vh;width:360px;background:#fff;padding:18px;box-shadow:-20px 0 40px rgba(90,55,36,0.06);transform:translateX(110%);transition:transform .28s ease;z-index:70}
+.drawer.open{transform:translateX(0)}
+.drawer h3{margin:0 0 8px}
+.cart-item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed #eee}
+.qty{display:flex;gap:6px;align-items:center}
+.qty button{background:#f1f1f1;border:0;padding:6px;border-radius:6px;cursor:pointer}
+.checkout{background:var(--brown);color:white;padding:10px;border-radius:10px;border:0;width:100%;cursor:pointer;margin-top:12px}
+
+/* modal */
+.modal-bg{display:none;position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.4);align-items:center;justify-content:center;z-index:80}
+.modal-window{background:white;padding:18px;border-radius:10px;width:320px;margin:40px auto;}
+.input{width:100%;padding:8px;margin:8px 0;border-radius:6px;border:1px solid #eee}
+.btn-primary{flex:1;background:var(--accent);color:white;border:0;padding:10px;border-radius:8px}
+.btn-secondary{flex:1;background:#f3f3f3;border:0;padding:10px;border-radius:8px}
+
+footer{margin-top:36px;padding:28px 0;border-top:1px solid rgba(90,55,36,0.04)}
+.contacts{display:flex;gap:20px;align-items:center}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{order:-1}
+  .drawer{width:100%;}
+}

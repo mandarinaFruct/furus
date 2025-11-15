@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>С теплом и сгущенкой — Пекарня</title>
+
+  <!-- Стили теперь отдельно -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">JE</div>
+        <div>
+          <div style="font-weight:1000;color:var(--brown)">Домашняя пекарня</div>
+          <div style="font-size:12px;color:var(--muted)">Свежая выпечка каждый день</div>
+        </div>
+      </div>
+      <nav>
+        <a data-scroll="#products">Ассортимент</a>
+        <a data-scroll="#about">О нас</a>
+        <a data-scroll="#contacts">Контакты</a>
+        <button class="btn-reserve" id="orderNow">Заказать</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <div style="color:var(--accent);font-weight:700;">Скидки до 80%</div>
+        <h1>С теплом и сгущенкой | Пекарня</h1>
+        <p>Домашняя выпечка: круассаны, булочки, печенье и торты — свежие каждый день.</p>
+      </div>
+    </section>
+
+    <div class="categories">
+      <div class="cat" data-cat="all"><span>Все</span></div>
+      <div class="cat" data-cat="buns"><span>Булочки</span></div>
+      <div class="cat" data-cat="cakes"><span>Торты</span></div>
+      <div class="cat" data-cat="pastry"><span>Пирожные</span></div>
+      <div class="cat" data-cat="cookies"><span>Печенье</span></div>
+    </div>
+
+    <section id="products" class="products">
+      <h2 style="text-align:center;margin:0 0 14px;font-size:22px">Ассортимент</h2>
+      <div class="products-grid" id="grid"></div>
+    </section>
+
+    <section id="about" style="padding:20px 0;">
+      <h3 style="text-align:center">О нас</h3>
+      <p style="text-align:center;color:var(--muted)">Пекарня С теплом и сгущенкой — домашняя выпечка из натуральных ингредиентов.</p>
+    </section>
+
+    <footer id="contacts">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:800;color:var(--brown)">С теплом и сгущенкой Пекарня</div>
+          <div style="color:var(--muted);margin-top:6px">Fresh breads & pastries — Irkutsk, Russia</div>
+        </div>
+        <div class="contacts">
+          <div style="font-size:14px">📞 +7 999 123 4567</div>
+          <div style="font-size:14px">✉️ netnetdanetminet@mail.ru</div>
+          <div style="font-size:14px">📍 Иркутск</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- cart button -->
+  <button class="cart-btn" id="openCart">
+    🧺 <div style="font-weight:700">Корзина</div>
+    <div class="cart-count" id="cartCount">0</div>
+  </button>
+
+  <!-- cart drawer -->
+  <aside class="drawer" id="cartDrawer">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3>Корзина</h3>
+      <button onclick="toggleDrawer(false)">✕</button>
+    </div>
+    <div id="cartList" style="margin-top:12px"></div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+      <div style="font-weight:800">Итого</div>
+      <div id="cartTotal" style="font-weight:800;color:var(--accent)">0 ₽</div>
+    </div>
+
+    <button class="checkout" onclick="openCheckout()">Оформить заказ</button>
+    <button class="checkout" style="background:#f3f3f3;color:var(--brown);margin-top:8px" onclick="clearCart()">Очистить корзину</button>
+  </aside>
+
+  <!-- checkout modal -->
+  <div id="checkoutModal" class="modal-bg">
+    <div class="modal-window">
+      <h3>Оформление заказа</h3>
+
+      <input id="addr" placeholder="Адрес доставки" class="input">
+      <input id="phone" placeholder="Телефон +7 или 8..." class="input">
+
+      <label style="display:block;margin-top:6px">Дата доставки</label>
+      <input id="date" type="date" class="input">
+
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button onclick="submitOrder()" class="btn-primary">Подтвердить</button>
+        <button onclick="document.getElementById('checkoutModal').style.display='none'" class="btn-secondary">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипт теперь отдельно -->
+  <script src="script.js"></script>
+
+</body>
+</html>
